@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Jószolgálat.hu</string>
+	<string>Jószolgálat</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
@@ -20,7 +20,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Joszolgalat.hu</string>
+	<string>Joszolgalat</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -114,10 +114,10 @@
 	<key>USHToolBarColor</key>
 	<string>#756d61</string>
 	<key>USHYouTubeDeveloperKey</key>
-	<string>AI39si4Xhw-DQS8q3Mp-m1wfajgdywhCesee5syP551qIyQ5FFedIa7LgBvWrcLvZDlloJADN5OZJAWRfUl9hQ3jjhspabDAXQ</string>
+	<string>AI39si4391Qj7BzfJwZSSmd5iTlNAb-LsplCs_dF080_2K_OJjF4ev-BwGmYWAeNP0XvlnkXJBPtTgE9F6HptIzOCM9PvG8f_Q</string>
 	<key>USHYouTubePassword</key>
-	<string>5juNIOVA9p</string>
+	<string>nj03gsz14</string>
 	<key>USHYouTubeUsername</key>
-	<string>youtube@ushahidi.com</string>
+	<string>jszfeltolt@gmail.com</string>
 </dict>
 </plist>
