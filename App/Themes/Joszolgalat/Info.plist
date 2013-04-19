@@ -31,13 +31,13 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>fb170755516397693</string>
+			<string>fb300985946698636</string>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3.2</string>
+	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>170755516397693</string>
+	<string>300985946698636</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
@@ -69,9 +69,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>USHAppDescription</key>
-	<string>Ushahidi is an open source platform for democratizing information, increasing transparency and lowering the barriers for individuals to share their stories.</string>
+	<string>A jószolgálat alkalmazás a joszolgalat.hu webszolgáltatás elérését teszi lehetővé. Lehetőséget biztosít katasztrófahelyzetekben segít kérésre és felajánlásra. </string>
 	<key>USHAppStoreURL</key>
-	<string>http://itunes.apple.com/app/ushahidi-ios/id410609585</string>
+	<string></string>
 	<key>USHButtonDoneColor</key>
 	<string>#8a1f03</string>
 	<key>USHMapURL</key>
@@ -96,9 +96,9 @@
 	<key>USHSortReportsByDate</key>
 	<true/>
 	<key>USHSupportEmail</key>
-	<string>support@ushahidi.com</string>
+	<string>support@joszolgalat.hu</string>
 	<key>USHSupportURL</key>
-	<string>http://www.ushahidi.com</string>
+	<string>http://www.joszolgalat.hu</string>
 	<key>USHTabBarColor</key>
 	<string>#756d61</string>
 	<key>USHTableBackColor</key>
