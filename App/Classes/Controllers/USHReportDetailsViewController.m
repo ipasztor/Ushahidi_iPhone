@@ -446,7 +446,11 @@ typedef enum {
 
 - (void) sharePostFacebook:(USHShareController*)share {
     NSString *message = [NSString stringWithFormat:@"%@ %@", self.map.name, self.report.title];
-    [self.shareController postFacebook:message url:self.report.url];
+    NSString *url=[NSString stringWithFormat:@"http://joszolgalat.hu/index.php/reports/view/%@",self.report.identifier];
+    DLog(@"URL %@",url);
+    [self.shareController postFacebook:message url:url
+            image:[UIImage imageWithData:((USHPhoto *)[self.report.photos anyObject]).image]];
+
 }
 
 @end

@@ -29,6 +29,7 @@
 #import "USHQrCodeViewController.h"
 #import "NSBundle+USH.h"
 #import "USHDefaults.h"
+#import "Social/Social.h"
 
 @interface USHShareController ()
 
@@ -562,8 +563,30 @@ typedef enum {
 }
 
 - (void) postFacebook:(NSString*)text url:(NSString*)url image:(UIImage *)image {
-    if (FBSession.activeSession.isOpen == NO) {
-        [FBSession openActiveSessionWithReadPermissions:nil
+    if([SLComposeViewController class]){
+        SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+            SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+                [fbController dismissViewControllerAnimated:YES completion:nil];
+                switch(result){
+                    case SLComposeViewControllerResultCancelled:
+                    default:
+                        DLog(@"Cancelled.....");
+                        break;
+                    case SLComposeViewControllerResultDone:
+                        DLog(@"Posted....");
+                        break;
+                }};
+        
+            [fbController addImage:image];
+            [fbController setInitialText:text];
+            [fbController addURL:[NSURL URLWithString:url]];
+            [fbController setCompletionHandler:completionHandler];
+            [self.controller presentViewController:fbController animated:YES completion:nil];
+        }
+    }else{
+        if (FBSession.activeSession.isOpen == NO) {
+            [FBSession openActiveSessionWithReadPermissions:nil
                                            allowLoginUI:YES
                                       completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
                                           if (error) {
@@ -584,9 +607,9 @@ typedef enum {
                                               [FBSession.activeSession closeAndClearTokenInformation];
                                           }
                                       }];
-    }
-    else if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound) {
-        [FBSession.activeSession reauthorizeWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"]
+        }
+        else if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound) {
+            [FBSession.activeSession reauthorizeWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"]
                                                    defaultAudience:FBSessionDefaultAudienceFriends
                                                  completionHandler:^(FBSession *session, NSError *error) {
                                                      if (error) {
@@ -601,9 +624,9 @@ typedef enum {
                                                          [self postFacebook:text url:url image:image];
                                                      }
                                                  }];
-    }
-    else {
-        BOOL displayedNativeDialog = [FBNativeDialogs presentShareDialogModallyFrom:self.controller
+        }
+        else {
+            BOOL displayedNativeDialog = [FBNativeDialogs presentShareDialogModallyFrom:self.controller
                                                                         initialText:text
                                                                               image:image
                                                                                 url:url != nil ? [NSURL URLWithString:url] : nil
@@ -628,9 +651,9 @@ typedef enum {
                                                                                     [self.loadingView showWithMessage:NSLocalizedString(@"Posted", nil) hide:2.0];
                                                                                 }
                                                                             }];
-        if (!displayedNativeDialog) {
-            [self.loadingView showWithMessage:NSLocalizedString(@"Posting...", nil)];
-            [FBRequestConnection startForUploadPhoto:image
+            if (!displayedNativeDialog) {
+                [self.loadingView showWithMessage:NSLocalizedString(@"Posting...", nil)];
+                [FBRequestConnection startForUploadPhoto:image
                                    completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                        if (error) {
                                            [self.loadingView hide];
@@ -647,6 +670,7 @@ typedef enum {
                                            [self.loadingView showWithMessage:NSLocalizedString(@"Posted", nil) hide:2.0];
                                        }
                                    }];
+            }
         }
     }
 }

@@ -30,8 +30,10 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleURLName</key>
-			<string>fb300985946698636</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb300985946698636</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
@@ -71,7 +73,7 @@
 	<key>USHAppDescription</key>
 	<string>A jószolgálat alkalmazás a joszolgalat.hu webszolgáltatás elérését teszi lehetővé. Lehetőséget biztosít katasztrófahelyzetekben segít kérésre és felajánlásra. </string>
 	<key>USHAppStoreURL</key>
-	<string></string>
+	<string>https://itunes.apple.com/app/joszolgalat/id638633882</string>
 	<key>USHButtonDoneColor</key>
 	<string>#8a1f03</string>
 	<key>USHMapURL</key>
@@ -96,7 +98,7 @@
 	<key>USHSortReportsByDate</key>
 	<true/>
 	<key>USHSupportEmail</key>
-	<string>support@joszolgalat.hu</string>
+	<string>info@joszolgalat.hu</string>
 	<key>USHSupportURL</key>
 	<string>http://www.joszolgalat.hu</string>
 	<key>USHTabBarColor</key>
